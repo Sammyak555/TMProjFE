@@ -1,3 +1,6 @@
-.ProjectCreationContainer{
+.projectDetailded{
     border: 1px solid red;
+    width: 72%;
+    margin:auto;
+    left: 20%;
 }

@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProjectCreate from '../Components/ProjectCreate'
+import SingleProjBox from '../Components/SingleProjBox'
 import "../PageCss/Kanban.css"
 import { getallUserDetails, getUserDetails } from '../Redux/User/action'
 import SingleProject from './SingleProject'
@@ -32,9 +33,7 @@ const Kanban = ({ onOpen }) => {
           projects &&
           projects.map((el) => {
             return (
-              <div key={el._id} className='singleProjectBox'>
-                <p>{el.projName}</p>
-              </div>
+              <SingleProjBox key={el.id} el={el} />
             )
           })
         }

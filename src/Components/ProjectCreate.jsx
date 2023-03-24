@@ -45,8 +45,7 @@ const ProjectCreate = () => {
         dispatch(AddingProject(data, user._id)).then(() => {
             dispatch(getUserDetails)
         })
-        // console.log(data)
-        // console.log(user)
+        
     }
     console.log(project)
 
