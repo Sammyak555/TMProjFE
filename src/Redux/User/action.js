@@ -11,6 +11,16 @@ export const getuserfail=()=>{
     return{type: types.GET_USER_ERROR}
 }
 
+export const getalluserreq=()=>{
+    return{type: types.GET_ALLUSER_REQUEST}
+}
+export const getallusersucc=(payload)=>{
+    return{type: types.GET_ALLUSER_SUCCESS,payload}
+}
+export const getalluserfail=()=>{
+    return{type: types.GET_ALLUSER_ERROR}
+}
+
 export const getUserDetails= async (dispatch) =>{
 
     dispatch(getuserreq())
@@ -20,5 +30,17 @@ export const getUserDetails= async (dispatch) =>{
     })
     .catch((e)=>{
         dispatch(getuserfail())
+    })
+}
+
+export const getallUserDetails= async (dispatch) =>{
+
+    dispatch(getalluserreq())
+    return await axios.get(`http://localhost:5550/users/`)
+    .then((r)=>{
+        dispatch(getallusersucc(r.data))
+    })
+    .catch((e)=>{
+        dispatch(getalluserfail())
     })
 }

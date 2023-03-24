@@ -30,6 +30,21 @@ export const deleteprojectfail=()=>{
     return{type: types.DELETE_PROJECT_ERROR}
 }
 
+export const addtaskreq=()=>{
+    return{type: types.ADD_TASK_REQUEST}
+}
+export const addtasksucc=(payload)=>{
+    return{type: types.ADD_TASK_SUCCESS,payload}
+}
+export const addtaskfail=()=>{
+    return{type: types.ADD_TASK_ERROR}
+}
+
+
+
+
+
+
 export const getproject=(data)=>async(dispatch)=>{
   dispatch({type:types.GET_PROJECT_REQUEST})
     if(data){
@@ -55,6 +70,23 @@ export const AddingProject=(data,id)=>(dispatch)=>{
     })
     .catch((e)=>{
         dispatch(addprojectfail())
+    })
+}
+}
+
+export const AddingTask=(userid,data)=>(dispatch)=>{
+    dispatch(addtaskreq())
+    if(userid,data){
+       const payload ={
+            taskName:data.issueDescription,
+            AssignedTo:data.persontobeAssigned
+        }
+    return axios.post(`http://localhost:5550/task/${userid}/${data.project}`,payload)
+    .then((r)=>{
+        dispatch(addtasksucc(r.data))
+    })
+    .catch((e)=>{
+        dispatch(addtaskfail())
     })
 }
 }

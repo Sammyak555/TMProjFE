@@ -4,7 +4,7 @@ import "../PageCss/Project.css"
 const Project = () => {
 
   return (
-    <div className='ProjectCreationContainer'>
+    <div className=''>
       pro
     </div>
   )

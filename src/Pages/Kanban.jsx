@@ -4,16 +4,18 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProjectCreate from '../Components/ProjectCreate'
 import "../PageCss/Kanban.css"
-import { getUserDetails } from '../Redux/User/action'
+import { getallUserDetails, getUserDetails } from '../Redux/User/action'
 import SingleProject from './SingleProject'
 
 
 const Kanban = ({ onOpen }) => {
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userReducer.userDetails)
+  
 
   useEffect(() => {
     dispatch(getUserDetails)
+    dispatch(getallUserDetails)
   }, [])
 
   let projects = (user.projects)
@@ -57,7 +59,6 @@ const Kanban = ({ onOpen }) => {
                   return <SingleProject key={el._id} el={el} />
                 })
               }
-
             </Tbody>
           </Table>
         </TableContainer>

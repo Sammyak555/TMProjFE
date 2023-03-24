@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Issue from '../Pages/Issue'
 import Kanban from '../Pages/Kanban'
 import Project from '../Pages/Project'
 
@@ -9,6 +10,7 @@ const AllRoutes = () => {
         <Routes>
             <Route path='/' element={<Kanban />}/>
             <Route path='/create-project' element={<Project />}/>
+            <Route path='/issues' element={<Issue />}/>
         </Routes>
     </div>
   )
