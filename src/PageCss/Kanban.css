@@ -1,0 +1,34 @@
+.AllProjects{
+    border: 1px solid red;
+    width: 72%;
+    margin:auto;
+    left: 20%;
+}
+.projectboxes{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    width: 90%;
+    /* border: 1px solid red; */
+    justify-content: space-evenly;
+}
+.AllProjects-header{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+}
+.fixedProject{
+   
+    border-radius: 5px;
+    background-color: rgb(19, 152, 19);
+    color: whitesmoke;
+    height: 22px;
+    border: 1px solid rgb(19, 152, 19);
+    padding: 8px;
+}
+.singleProjectBox{
+    border: 1px solid grey;
+    border-radius: 8px;
+    text-align: center;
+}
