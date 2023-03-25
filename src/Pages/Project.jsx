@@ -9,17 +9,17 @@ import { getallUserDetails, getUserDetails } from '../Redux/User/action'
 const Project = () => {
   const dispatch = useDispatch()
   const params = useParams();
-  const [taskid,setTasid] = useState('')
-  const [ taskval, setTaskval] = useState('')
+  const [taskid, setTasid] = useState('')
+  const [taskval, setTaskval] = useState('')
   const user = useSelector((store) => store.userReducer.userDetails)
   const allUsers = useSelector((store) => store.userReducer.allUsers)
- 
+
 
   useEffect(() => {
     dispatch(getUserDetails)
     dispatch(getallUserDetails)
-    dispatch(updatingTask(user._id,myProject._id,taskid,taskval)).then(()=> dispatch(getUserDetails))
-  }, [taskid,taskval])
+    dispatch(updatingTask(user._id, myProject._id, taskid, taskval)).then(() => dispatch(getUserDetails))
+  }, [taskid, taskval])
   let project = user.projects
   var detailedProject;
   if (project) {
@@ -31,25 +31,25 @@ const Project = () => {
   }
 
   const myProject = detailedProject[0]
-  
+
   const handleTask = () => {
-  if(user&&myProject){
-      
+    if (user && myProject) {
+
       // dispatch(updatingTask())
-      console.log(user._id,myProject._id,taskid,taskval)
+      console.log(user._id, myProject._id, taskid, taskval)
     }
-  
+
   }
-  
+
   return (
     <div className='projectDetailded'>
       <div >
         {
           myProject &&
-          <h3> {`${myProject.projName} Details`}</h3>
+          <h2> {`${myProject.projName} Details`}</h2>
         }
       </div>
-
+      <br />
       <div className="user-table">
         <TableContainer>
           <Table variant="striped" colorScheme="teal">
@@ -75,26 +75,26 @@ const Project = () => {
                           allUsers.map((user) => {
                             if (user._id === el.AssignedTo) {
                               return (
-                                <h2>{user.name}</h2>
+                                <p>{user.name}</p>
                               )
                             }
                           })
                         }
                       </Td>
                       <Td>
-                        
-                       {
-                        (  el.taskDone===true )&&<h1>Done</h1>
+
+                        {
+                          (el.taskDone === true) && <h1>Done</h1>
                         }
                         {
-                        (  el.taskInprocess===true )&&<h1>Inprocess</h1>
+                          (el.taskInprocess === true) && <h1>Inprocess</h1>
                         }
                         {
-                        (  el.taskTodo===true )&&<h1>Todo</h1>
+                          (el.taskTodo === true) && <h1>Todo</h1>
                         }
                       </Td>
                       <Td>
-                        <select name="task" onChange={(e)=>{setTasid(el._id);setTaskval(e.target.value);handleTask()}}>
+                        <select name="task" onChange={(e) => { setTasid(el._id); setTaskval(e.target.value); handleTask() }}>
                           <option value="">Select</option>
                           <option value="taskTodo">Todo</option>
                           <option value="taskInprocess">Inprocess</option>

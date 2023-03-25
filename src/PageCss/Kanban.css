@@ -1,25 +1,29 @@
-.AllProjects{
-    border: 1px solid red;
+.AllProjects {
+    /* border: 1px solid red; */
+    padding-top: 30px;
     width: 72%;
-    margin:auto;
-    left: 20%;
+    margin: auto;
+    margin-left: 20%;
 }
-.projectboxes{
+
+.projectboxes {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     width: 60%;
     /* border: 1px solid red; */
     justify-content: space-evenly;
 }
-.AllProjects-header{
+
+.AllProjects-header {
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: space-between;
 }
-.fixedProject{
-   
+
+.fixedProject {
+
     border-radius: 5px;
     background-color: rgb(19, 152, 19);
     color: whitesmoke;
@@ -27,9 +31,76 @@
     border: 1px solid rgb(19, 152, 19);
     padding: 8px;
 }
-.singleProjectBox{
+
+.singleProjectBox {
     border: 1px solid grey;
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
     width: 150px;
+    padding: 8px 2px 8px 2px;
+    background-color: lightblue;
+    font-size: large;
+}
+
+.singleProjectBox:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-size: large;
+    font-weight: 600;
+    font-family: sans-serif;
+}
+
+@media only screen and (max-width: 800px) {}
+
+@media only screen and (max-width: 426px) {
+
+    .AllProjects {
+        /* border: 1px solid red; */
+        padding-top: 30px;
+        width: 85%;
+        margin: auto;
+    }
+
+    .projectboxes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        width: 90%;
+        margin: auto;
+        /* border: 1px solid blue; */
+        justify-content: space-evenly;
+    }
+
+    .singleProjectBox {
+        border: 1px solid grey;
+        border-radius: 4px;
+        text-align: center;
+        width: 100px;
+        padding: 8px 2px 8px 2px;
+        background-color: lightblue;
+        font-size: large;
+    }
+
+    .AllProjects-header {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .fixedProject {
+
+        border-radius: 5px;
+        background-color: rgb(19, 152, 19);
+        color: whitesmoke;
+        height: 22px;
+        border: 1px solid rgb(19, 152, 19);
+        padding: 8px;
+    }
+
+    .user-table {
+        width: 100%;
+    }
 }

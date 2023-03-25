@@ -1,6 +1,5 @@
 import { Input, Select, Stack } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
-import { FcParallelTasks } from 'react-icons/fc';
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import "../PageCss/Issue.css"
 import { AddingTask, getproject } from '../Redux/Operation/action';
@@ -15,11 +14,11 @@ const Issue = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value })
-}
+  }
 
   const submitIssue = (e) => {
     e.preventDefault()
-    dispatch(AddingTask(user._id,data))
+    dispatch(AddingTask(user._id, data))
     dispatch(getproject)
   }
 
@@ -33,7 +32,7 @@ const Issue = () => {
             <label>Select Project</label>
             <Stack spacing={3}>
               <Select name='project' onChange={handleChange} size='md'>
-                <option value={""}>Select</option>
+                <option value={""}>Select Project</option>
                 {
                   user.projects &&
                   user.projects.map((el) => {
@@ -48,7 +47,7 @@ const Issue = () => {
             <Stack spacing={3}>
               <Select name='issue' onChange={handleChange} size='md'>
                 <option value={""}>
-                  Select
+                  Select Issue
                 </option>
                 <option value={"task"}>
                   Task
@@ -59,7 +58,6 @@ const Issue = () => {
               </Select>
             </Stack>
             <br />
-
             <div>
               <label>Issue</label>
               <br />
@@ -67,19 +65,14 @@ const Issue = () => {
             </div>
             <br />
             <div>
-
               <label>Asignee</label>
-
               <Input name={user.name} onChange={handleChange} placeholder={user.name} value={user.name} />
             </div>
             <br />
-
-
             <label>Assign Issue to: </label>
-
             <Stack spacing={3}>
-              <Select name='persontobeAssigned'  onChange={handleChange} size='md'>
-                <option value={""}>Select</option>
+              <Select name='persontobeAssigned' onChange={handleChange} size='md'>
+                <option value={""}>Assign Select</option>
                 {
                   allUsers &&
                   allUsers.map((el) => {

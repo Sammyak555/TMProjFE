@@ -1,5 +1,4 @@
 import { Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr, useDisclosure } from '@chakra-ui/react'
-import axios from 'axios'
 import React, { useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProjectCreate from '../Components/ProjectCreate'
@@ -9,10 +8,10 @@ import { getallUserDetails, getUserDetails } from '../Redux/User/action'
 import SingleProject from './SingleProject'
 
 
-const Kanban = ( ) => {
+const Kanban = () => {
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userReducer.userDetails)
-  
+
 
   useEffect(() => {
     dispatch(getUserDetails)
@@ -25,9 +24,12 @@ const Kanban = ( ) => {
   return (
     <div className='AllProjects'>
       <div className='AllProjects-header'>
-        <h2>{"> Projects"}</h2>
-        <ProjectCreate />
+        <h2>{"Projects"}</h2>
+        <div>
+          <ProjectCreate />
+        </div>
       </div>
+      <br />
       <div className='projectboxes'>
         {
           projects &&
@@ -38,13 +40,14 @@ const Kanban = ( ) => {
           })
         }
       </div>
+      <br />
       <div className="user-table">
         <TableContainer>
           <Table variant="striped" colorScheme="teal">
             {/* <TableCaption>All project Data</TableCaption> */}
             <Thead>
               <Tr>
-             
+
                 <Th>id</Th>
                 <Th>project name</Th>
                 <Th>created by</Th>

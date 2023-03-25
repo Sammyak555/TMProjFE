@@ -1,6 +1,29 @@
 .projectDetailded{
-    border: 1px solid red;
-    width: 72%;
+    /* border: 1px solid red; */
+    width: 78%;
     margin:auto;
     left: 20%;
+    margin-top: 20px;
+    padding-left: 8%;
+}
+
+.user-table{
+    /* border: 1px solid red; */
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+@media only screen and (max-width: 800px) {
+    
+}
+
+@media only screen and (max-width: 426px) {
+    .projectDetailded{
+        /* border: 1px solid red; */
+        width: 100%;
+        margin:auto;
+        left: 20%;
+        margin-top: 20px;
+        padding-left: 8%;
+    }
 }

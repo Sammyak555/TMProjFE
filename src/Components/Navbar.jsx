@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './sidebardata';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
+import { SiTask } from "react-icons/si";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -20,6 +21,9 @@ function Navbar() {
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
+          <div className='projectName'>
+          ＴＡＳＫ  ＭＡＮＡＧＥＲ<SiTask />
+          </div>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' onClick={showSidebar}>

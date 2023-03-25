@@ -45,14 +45,14 @@ const ProjectCreate = () => {
         dispatch(AddingProject(data, user._id)).then(() => {
             dispatch(getUserDetails)
         })
-        
+
     }
     console.log(project)
 
 
     return (
         <>
-            <Button className='add' colorScheme='white'  onClick={onOpen} variant={'ghost'}>CREATE PROJECT</Button>
+            <Button color={'white'} colorScheme='white' bgColor={"green.400"} w={"fit-content"} onClick={onOpen} variant={'ghost'}>CREATE PROJECT</Button>
             <Container>
                 <Modal
                     initialFocusRef={initialRef}
@@ -66,22 +66,14 @@ const ProjectCreate = () => {
                         <ModalHeader>Project Details</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody>
-
-                            
-                                <FormLabel fontWeight={"normal"}>Project Name</FormLabel>
-                                <Input ref={initialRef} name="projName" onChange={handleChange} type="text" placeholder='Project name' />
-                           
-
-
+                            <FormLabel fontWeight={"normal"}>Project Name</FormLabel>
+                            <Input ref={initialRef} name="projName" onChange={handleChange} type="text" placeholder='Project name' />
                             <br />
-                            <h2>Project Description</h2>
-
-                            
-                                <Textarea onChange={handleChange} name='projDescription' placeholder='Add Description'></Textarea>
-                          
-                        <br />
+                            <p>Project Description</p>
+                            <Textarea onChange={handleChange} name='projDescription' placeholder='Add Description'></Textarea>
+                            <br />
                             <Stack spacing={3}>
-                            <label>Project Type</label>
+                                <label>Project Type</label>
                                 <Select onChange={handleChange} name='projCategory' defaultValue={'software'} size='md'>
                                     <option value={"software"}>
                                         Software
@@ -91,11 +83,9 @@ const ProjectCreate = () => {
                                     </option>
                                 </Select>
                             </Stack>
-
                         </ModalBody>
-
                         <ModalFooter>
-                            <Button onClick={(e) => { handleadd(e); onClose();}} colorScheme="green" mr={3}>
+                            <Button onClick={(e) => { handleadd(e); onClose(); }} colorScheme="green" mr={3}>
                                 Create Project
                             </Button>
                             <Button onClick={onClose}>Cancel</Button>
