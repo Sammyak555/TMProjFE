@@ -5,7 +5,6 @@ const SingleProjBox = ({el}) => {
   const navigate = useNavigate()
 
     const handleClick = (el) => {
-        console.log(el)
         navigate(`/projectdetails/${el._id}`)
         
     }

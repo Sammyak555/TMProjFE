@@ -9,7 +9,7 @@ import { getallUserDetails, getUserDetails } from '../Redux/User/action'
 import SingleProject from './SingleProject'
 
 
-const Kanban = ({ onOpen }) => {
+const Kanban = ( ) => {
   const dispatch = useDispatch()
   const user = useSelector((store) => store.userReducer.userDetails)
   
@@ -41,14 +41,14 @@ const Kanban = ({ onOpen }) => {
       <div className="user-table">
         <TableContainer>
           <Table variant="striped" colorScheme="teal">
-            <TableCaption>All User Data</TableCaption>
+            {/* <TableCaption>All project Data</TableCaption> */}
             <Thead>
               <Tr>
-                <Th>sr.no.</Th>
+             
                 <Th>id</Th>
-                <Th>name</Th>
-                <Th>block user</Th>
-                <Th>delete user</Th>
+                <Th>project name</Th>
+                <Th>created by</Th>
+                <Th>Delete Project</Th>
               </Tr>
             </Thead>
             <Tbody>

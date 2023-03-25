@@ -52,46 +52,42 @@ const ProjectCreate = () => {
 
     return (
         <>
-            <Button className='add' colorScheme='white' onClick={onOpen} variant={'ghost'}>CREATE PROJECT</Button>
+            <Button className='add' colorScheme='white'  onClick={onOpen} variant={'ghost'}>CREATE PROJECT</Button>
             <Container>
                 <Modal
                     initialFocusRef={initialRef}
                     finalFocusRef={finalRef}
                     isOpen={isOpen}
                     onClose={onClose}
-                    size="4xl"
+                    size="2xl"
                 >
                     <ModalOverlay />
                     <ModalContent>
                         <ModalHeader>Project Details</ModalHeader>
                         <ModalCloseButton />
-                        <ModalBody pb={6}>
+                        <ModalBody>
 
-                            <div className='name'>
+                            
                                 <FormLabel fontWeight={"normal"}>Project Name</FormLabel>
-                                <Input ref={initialRef} name="projName" onChange={handleChange} type="text" placeholder='First name' />
-                            </div>
+                                <Input ref={initialRef} name="projName" onChange={handleChange} type="text" placeholder='Project name' />
+                           
 
 
                             <br />
-                            <h2>Description</h2>
+                            <h2>Project Description</h2>
 
-                            <div className='name'>
+                            
                                 <Textarea onChange={handleChange} name='projDescription' placeholder='Add Description'></Textarea>
-                            </div>
-
+                          
+                        <br />
                             <Stack spacing={3}>
-
-
+                            <label>Project Type</label>
                                 <Select onChange={handleChange} name='projCategory' defaultValue={'software'} size='md'>
                                     <option value={"software"}>
                                         Software
                                     </option>
-                                    <option value={"software"}>
-                                        Software
-                                    </option>
-                                    <option value={"software"}>
-                                        Software
+                                    <option value={"healthcare"}>
+                                        HealthCare
                                     </option>
                                 </Select>
                             </Stack>
@@ -99,10 +95,10 @@ const ProjectCreate = () => {
                         </ModalBody>
 
                         <ModalFooter>
-                            <Button onClick={(e) => { handleadd(e); onClose(); }} colorScheme="green" mr={3}>
-                                ADD ADDRESS
+                            <Button onClick={(e) => { handleadd(e); onClose();}} colorScheme="green" mr={3}>
+                                Create Project
                             </Button>
-                            <Button onClick={onClose}>CANCEL</Button>
+                            <Button onClick={onClose}>Cancel</Button>
                         </ModalFooter>
                     </ModalContent>
                 </Modal>
