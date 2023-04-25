@@ -73,7 +73,7 @@ export const AddingProject=(data,id)=>(dispatch)=>{
     dispatch(addprojectreq())
     if(data&&id){
        console.log(data,id)
-    return axios.post(`https://tame-newt-garment.cyclic.app/project/${id}`,data)
+    return axios.post(`https://tame-blue-agouti-ring.cyclic.app/project/${id}`,data)
     .then((r)=>{
         dispatch(addprojectsucc(r.data))
     })
@@ -87,7 +87,7 @@ export const deletingProject=(data,id)=>(dispatch)=>{
     dispatch(deleteprojectreq())
     if(data&&id){
        console.log(data,id)
-    return axios.delete(`https://tame-newt-garment.cyclic.app/project/${id}/${data}`)
+    return axios.delete(`https://tame-blue-agouti-ring.cyclic.app/project/${id}/${data}`)
     .then((r)=>{
         dispatch(deleteprojectsucc(r.data))
     })
@@ -104,7 +104,7 @@ export const AddingTask=(userid,data)=>(dispatch)=>{
             taskName:data.issueDescription,
             AssignedTo:data.persontobeAssigned
         }
-    return axios.post(`https://tame-newt-garment.cyclic.app/task/${userid}/${data.project}`,payload)
+    return axios.post(`https://tame-blue-agouti-ring.cyclic.app/task/${userid}/${data.project}`,payload)
     .then((r)=>{
         dispatch(addtasksucc(r.data))
     })
@@ -121,7 +121,7 @@ export const updatingTask= (userid,projid,taskid,taskval)=>async(dispatch)=>{
        const payload ={ }
        payload[taskval]=true
         console.log(payload)
-    return axios.patch(`https://tame-newt-garment.cyclic.app/task/${userid}/${projid}/${taskid}`,payload)
+    return axios.patch(`https://tame-blue-agouti-ring.cyclic.app/task/${userid}/${projid}/${taskid}`,payload)
     .then((r)=>{
         dispatch(updatetasksucc(r.data))
     })
