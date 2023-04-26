@@ -1,4 +1,4 @@
-import { Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr, useDisclosure } from '@chakra-ui/react'
+import { Spinner, Table, TableCaption, TableContainer, Tbody, Th, Thead, Tr, useDisclosure } from '@chakra-ui/react'
 import React, { useEffect, useReducer, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProjectCreate from '../Components/ProjectCreate'
@@ -56,10 +56,18 @@ const Kanban = () => {
             </Thead>
             <Tbody>
               {
-                projects &&
-                projects.map((el) => {
-                  return <SingleProject key={el._id} el={el} />
-                })
+                projects ?
+                  projects.map((el) => {
+                    return <SingleProject key={el._id} el={el} />
+                  }) :
+                  <Spinner
+                    thickness='4px'
+                    speed='0.65s'
+                    emptyColor='gray.200'
+                    color='blue.500'
+                    size='xl'
+                    marginLeft={'300%'}
+                  />
               }
             </Tbody>
           </Table>
